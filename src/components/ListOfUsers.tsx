@@ -1,11 +1,14 @@
 // 'use client';
 import {
+	Badge,
+	Card,
 	Table,
 	TableBody,
 	TableCell,
 	TableHead,
 	TableHeaderCell,
 	TableRow,
+	Title,
 } from "@tremor/react";
 
 const users = [
@@ -50,22 +53,10 @@ const users = [
 export default function ListOfUsers() {
 	return (
 		<>
-			<div className="sm:flex sm:items-center sm:justify-between sm:space-x-10">
-				<div>
-					<h3 className="font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-						ids
-					</h3>
-					<p className="mt-1 text-tremor-default leading-6 text-tremor-content dark:text-dark-tremor-content">
-						Overview of all registered ids within your organization.
-					</p>
-				</div>
-				<button
-					type="button"
-					className="mt-4 w-full whitespace-nowrap rounded-tremor-small bg-tremor-brand px-4 py-2.5 text-tremor-default font-medium text-tremor-brand-inverted shadow-tremor-input hover:bg-tremor-brand-emphasis dark:bg-dark-tremor-brand dark:text-dark-tremor-brand-inverted dark:shadow-dark-tremor-input dark:hover:bg-dark-tremor-brand-emphasis sm:mt-0 sm:w-fit"
-				>
-					Add id
-				</button>
-			</div>
+			<Card className="flex">
+				<Title>Usuarios</Title>
+				<Badge className="ml-2">{users.length}</Badge>
+			</Card>
 			<Table className="mt-8">
 				<TableHead>
 					<TableRow className="border-b border-tremor-border dark:border-dark-tremor-border">
