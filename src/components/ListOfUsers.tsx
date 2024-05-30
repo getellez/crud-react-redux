@@ -10,47 +10,14 @@ import {
 	TableRow,
 	Title,
 } from "@tremor/react";
-
-const users = [
-	{
-		id: "1",
-		name: "John Doe",
-		github: "jhondoe",
-		email: "jhon@example.com",
-	},
-	{
-		id: "2",
-		name: "Jane Smith",
-		github: "janesmith",
-		email: "jane@example.com",
-	},
-	{
-		id: "3",
-		name: "Jane Smith",
-		github: "janesmith2",
-		email: "janesmith@example.com",
-	},
-	{
-		id: "4",
-		name: "Mike Johnson",
-		github: "mikejohnson",
-		email: "mikejohnson@example.com",
-	},
-	{
-		id: "5",
-		name: "Alice Brown",
-		github: "alicebrown",
-		email: "alicebrown@example.com",
-	},
-	{
-		id: "6",
-		name: "David Clark",
-		github: "davidclark",
-		email: "davidclark@example.com",
-	},
-];
+import { useSelector } from "react-redux";
+import { useUsersActions } from "../hooks/useUsersActions";
+import type { RootState } from "../store";
+import type { UserWithId } from "../store/users/usersSlice";
 
 export default function ListOfUsers() {
+	const users = useSelector((state: RootState) => state.users);
+	const { removeUser } = useUsersActions();
 	return (
 		<>
 			<Card className="flex">
@@ -78,7 +45,7 @@ export default function ListOfUsers() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{users.map((user) => (
+					{users.map((user: UserWithId) => (
 						<TableRow key={user.id}>
 							<TableCell>{user.id}</TableCell>
 							<TableCell className="flex items-center">
@@ -106,7 +73,7 @@ export default function ListOfUsers() {
 										stroke="currentColor"
 										className="size-6"
 									>
-										<title hidden>Edit</title>
+										<title hidden>Editar</title>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -114,7 +81,7 @@ export default function ListOfUsers() {
 										/>
 									</svg>
 								</button>
-								<button type="button">
+								<button type="button" onClick={() => removeUser(user.id)}>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -123,7 +90,7 @@ export default function ListOfUsers() {
 										stroke="currentColor"
 										className="size-6"
 									>
-										<title hidden>Delete</title>
+										<title hidden>Eliminar</title>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
