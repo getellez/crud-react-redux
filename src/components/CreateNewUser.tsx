@@ -14,17 +14,13 @@ export function CreateNewUser() {
 		addUser({ name, email, github });
 	};
 	return (
-		<Card className="w-1/3 mx-auto mt-8">
+		<Card className="w-fit flex flex-col justify-center items-center mx-auto">
 			<Title> Crear nuevo usuario</Title>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="flex items-center gap-x-2 w-fit">
 				<TextInput name="name" className="my-2" placeholder="Nombre" />
 				<TextInput name="email" className="my-2" placeholder="Email" />
 				<TextInput name="github" className="my-2" placeholder="Github" />
-				<div>
-					<Button type="submit" className="mt-4">
-						Crear usuario
-					</Button>
-				</div>
+				<Button type="submit">Crear usuario</Button>
 			</form>
 		</Card>
 	);

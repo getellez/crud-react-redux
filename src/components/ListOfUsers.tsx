@@ -20,11 +20,11 @@ export default function ListOfUsers() {
 	const { removeUser } = useUsersActions();
 	return (
 		<>
-			<Card className="flex">
+			<div className="flex mt-4">
 				<Title>Usuarios</Title>
 				<Badge className="ml-2">{users.length}</Badge>
-			</Card>
-			<Table className="mt-8">
+			</div>
+			<Table>
 				<TableHead>
 					<TableRow className="border-b border-tremor-border dark:border-dark-tremor-border">
 						<TableHeaderCell className="text-tremor-content-strong dark:text-dark-tremor-content-strong">
