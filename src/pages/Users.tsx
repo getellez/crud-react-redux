@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { CreateNewUser } from "../components/CreateNewUser";
 import ListOfUsers from "../components/ListOfUsers";
 
@@ -6,6 +7,7 @@ const UsersPage = () => {
 		<>
 			<CreateNewUser />
 			<ListOfUsers />
+			<Outlet />
 		</>
 	);
 };

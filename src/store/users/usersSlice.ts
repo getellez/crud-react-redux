@@ -37,6 +37,12 @@ const DEFAULT_STATE = [
 		github: "davidclark",
 		email: "davidclark@example.com",
 	},
+	{
+		id: "7",
+		name: "German Tellez",
+		github: "getellez",
+		email: "gertellezv@example.com",
+	},
 ];
 
 export type UserId = string;

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home";
+import ProfilePage from "./pages/Profile";
 import UsersPage from "./pages/Users";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/users" element={<UsersPage />} />
-				{/* TODO: user nested route */}
+				<Route path="/users/:userId" element={<ProfilePage />} />
 				<Route path="*" element={<h1>Not Found</h1>} />
 			</Routes>
 		</div>

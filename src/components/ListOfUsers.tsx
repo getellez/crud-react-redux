@@ -1,7 +1,6 @@
 // 'use client';
 import {
 	Badge,
-	Card,
 	Table,
 	TableBody,
 	TableCell,
@@ -11,6 +10,7 @@ import {
 	Title,
 } from "@tremor/react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useUsersActions } from "../hooks/useUsersActions";
 import type { RootState } from "../store";
 import type { UserWithId } from "../store/users/usersSlice";
@@ -48,18 +48,20 @@ export default function ListOfUsers() {
 					{users.map((user: UserWithId) => (
 						<TableRow key={user.id}>
 							<TableCell>{user.id}</TableCell>
-							<TableCell className="flex items-center">
-								<img
-									src={`https://unavatar.io/github/${user.github}`}
-									alt="avatar"
-									style={{
-										width: "32px",
-										height: "32px",
-										borderRadius: "50%",
-										marginRight: "8px",
-									}}
-								/>
-								{user.name}
+							<TableCell>
+								<Link to={`/users/${user.id}`} className="flex items-center">
+									<img
+										src={`https://unavatar.io/github/${user.github}`}
+										alt="avatar"
+										style={{
+											width: "32px",
+											height: "32px",
+											borderRadius: "50%",
+											marginRight: "8px",
+										}}
+									/>
+									{user.name}
+								</Link>
 							</TableCell>
 							<TableCell>{user.email}</TableCell>
 							<TableCell>{user.github}</TableCell>
